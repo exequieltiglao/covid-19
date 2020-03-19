@@ -1,6 +1,8 @@
 package com.exequieltiglao.covid.home
 
+import android.app.Activity
 import android.util.Log
+import android.widget.Toast
 import com.exequieltiglao.covid.entity.CDRresults
 import com.exequieltiglao.covid.service.ApiRepository
 import com.uber.autodispose.ObservableScoper
@@ -9,6 +11,7 @@ import com.uber.rib.core.Interactor
 import com.uber.rib.core.RibInteractor
 import io.reactivex.Notification
 import io.reactivex.android.schedulers.AndroidSchedulers
+import retrofit2.HttpException
 import javax.inject.Inject
 
 /**
@@ -21,6 +24,7 @@ class HomeInteractor : Interactor<HomeInteractor.HomePresenter, HomeRouter>() {
 
     @Inject lateinit var presenter: HomePresenter
     @Inject lateinit var apiRepository: ApiRepository
+    var activity: Activity?= null
 
     override fun didBecomeActive(savedInstanceState: Bundle?) {
         super.didBecomeActive(savedInstanceState)
@@ -41,7 +45,12 @@ class HomeInteractor : Interactor<HomeInteractor.HomePresenter, HomeRouter>() {
                         presenter.setData(it.value!!)
                     }
                     it.isOnError -> {
-                        Log.d("isOnError", "error_data")
+                        if (it is HttpException)
+                            if (it.code() == 404)
+                                Toast.makeText(activity, "Error Found", Toast.LENGTH_SHORT).show()
+                    }
+                    it.isOnComplete -> {
+                        Log.d("isOnComplete", "completed....")
                     }
                 }
             }

@@ -1,0 +1,3 @@
+package com.exequieltiglao.covid.utils
+
+interface AndroidEventsService: ActivityResultService, BackPressService

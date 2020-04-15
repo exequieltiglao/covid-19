@@ -42,7 +42,7 @@ class HomeBuilder(dependency: ParentComponent) :
     }
 
     override fun inflateView(inflater: LayoutInflater, parentViewGroup: ViewGroup): HomeView? {
-        return inflater.inflate(R.layout.home_cdr_rib, parentViewGroup, false) as HomeView
+        return inflater.inflate(R.layout.show_data, parentViewGroup, false) as HomeView
     }
 
     interface ParentComponent {

@@ -1,7 +1,8 @@
 package com.exequieltiglao.covid.entity
 
-data class CDR(
+data class Total(
     val confirmed: Int,
     val deaths: Int,
-    val recovered: Int
+    val recovered: Int,
+    val active: Int
 )

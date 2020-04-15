@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.exequieltiglao.covid.home.HomeView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.exequieltiglao.covid.home.HomeView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#EEEEEE"
     android:elevation="100dp"
-    android:background="#FFFFFF"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
-
     <com.airbnb.epoxy.EpoxyRecyclerView
-        android:id="@+id/rv_cdr"
+        android:id="@+id/rv_data"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="10dp"

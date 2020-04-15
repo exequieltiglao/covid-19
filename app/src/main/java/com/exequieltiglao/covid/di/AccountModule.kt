@@ -12,7 +12,9 @@ class AccountModule {
 
     @Module
     companion object {
-        const val BASE_URL = "https://2019ncov.asia/"
+//        const val BASE_URL = "https://2019ncov.asia/"
+
+        const val BASE_URL = "https://covid2019-api.herokuapp.com/"
 
         @JvmStatic
         @Provides

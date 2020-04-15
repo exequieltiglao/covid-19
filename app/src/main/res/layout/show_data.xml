@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.exequieltiglao.covid.home.HomeView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purpleish"
+    android:elevation="150dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/arial"
+            android:text="Covid-19"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/svg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:src="@drawable/global"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/arial"
+            android:text="Statistics"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_affected"
+            android:layout_width="180dp"
+            android:layout_height="110sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            app:cardBackgroundColor="@color/orange3"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/stats">
+
+            <TextView
+                android:id="@+id/label_affected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/arial"
+                android:text="Affected"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="Affected" />
+
+            <TextView
+                android:id="@+id/total_affected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/arial"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                tools:text="250,201" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_death"
+            android:layout_width="180dp"
+            android:layout_height="110sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="15dp"
+            app:cardBackgroundColor="@color/tomato"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/stats">
+
+            <TextView
+                android:id="@+id/label_death"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/arial"
+                android:text="Death"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="Death" />
+
+            <TextView
+                android:id="@+id/total_death"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/arial"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                tools:text="50,201" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_recovered"
+            android:layout_width="180dp"
+            android:layout_height="110sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            app:cardBackgroundColor="@color/greenish1"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_affected">
+
+            <TextView
+                android:id="@+id/label_recovered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/arial"
+                android:text="Recovered"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="Recovered" />
+
+            <TextView
+                android:id="@+id/total_recovered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/arial"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                tools:text="150,201" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_active"
+            android:layout_width="180dp"
+            android:layout_height="110sp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            app:cardBackgroundColor="@color/lightblueish"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_death">
+
+            <TextView
+                android:id="@+id/label_active"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/arial"
+                android:text="Active"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="Active" />
+
+            <TextView
+                android:id="@+id/total_active"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/arial"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                tools:text="200,201" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.exequieltiglao.covid.home.HomeView>

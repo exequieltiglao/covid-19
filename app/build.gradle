@@ -39,10 +39,13 @@ dependencies {
     // UI
     implementation "androidx.cardview:cardview:1.0.0"
 
+    // Graph
+    // implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
+
     //Epoxy
     implementation 'com.airbnb.android:epoxy:3.9.0'
     implementation 'com.airbnb.android:epoxy-databinding:3.9.0'
-    annotationProcessor 'com.airbnb.android:epoxy-processor:3.9.0'
+    kapt 'com.airbnb.android:epoxy-processor:3.9.0'
 
     // RIB
     implementation "com.uber.rib:rib-android:0.9.1"

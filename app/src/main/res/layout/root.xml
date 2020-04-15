@@ -3,27 +3,44 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/purpleish1"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@color/transparent"
+        android:layout_marginTop="150dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/virus"/>
+
     <TextView
-        android:id="@+id/welcome"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WELCOME"
-        android:textColor="@color/colorPrimary"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="COVID-19"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        android:textAllCaps="true"
+        android:fontFamily="@font/arialbd"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@id/image"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/tap_here"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tap Here to Proceed"
-        android:textColor="#000000"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
         android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/arial"
         android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

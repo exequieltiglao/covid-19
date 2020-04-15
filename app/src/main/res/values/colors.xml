@@ -37,6 +37,9 @@
     <!--purple-->
     <color name="purpleish1">#764BC5</color>
     <color name="purpleish">#FF673AB7</color>
+    <color name="purpleish2">#827397</color>
+    <color name="purpleish4">#d8b9c3</color>
+
 
     <!--orange-->
     <color name="orange1">#ffc100</color>
@@ -44,5 +47,7 @@
     <color name="orange3">#F5AE1D</color>
     <color name="orange4">#ff7400</color>
     <color name="orange5">#ff4d00</color>
+
+    <color name="transparent">#00000000</color>
 
 </resources>

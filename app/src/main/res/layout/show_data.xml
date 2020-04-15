@@ -202,6 +202,13 @@
 
         </androidx.cardview.widget.CardView>
 
+        <include
+            android:id="@+id/nav"
+            layout="@layout/nav"
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.exequieltiglao.covid.home.HomeView>

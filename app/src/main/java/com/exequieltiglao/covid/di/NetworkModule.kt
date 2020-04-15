@@ -1,6 +1,5 @@
 package com.exequieltiglao.covid.di
 
-import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import io.reactivex.schedulers.Schedulers

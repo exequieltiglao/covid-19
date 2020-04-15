@@ -1,13 +1,15 @@
 package com.exequieltiglao.covid.home
 
 import android.util.Log
-import com.exequieltiglao.covid.entity.CDRresults
+import com.exequieltiglao.covid.entity.Data
 import com.exequieltiglao.covid.service.ApiRepository
 import com.uber.autodispose.ObservableScoper
+import com.uber.autodispose.SingleScoper
 import com.uber.rib.core.Bundle
 import com.uber.rib.core.Interactor
 import com.uber.rib.core.RibInteractor
 import io.reactivex.Notification
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
@@ -29,22 +31,14 @@ class HomeInteractor : Interactor<HomeInteractor.HomePresenter, HomeRouter>() {
     }
 
     fun showData() {
-        apiRepository.cdr()
-            .toObservable()
-            .materialize()
+        apiRepository.data()
             .observeOn(AndroidSchedulers.mainThread())
-            .to(ObservableScoper<Notification<List<CDRresults>>>(this))
-            .subscribe {
-                when {
-                    it.isOnNext -> {
-                        Log.d("isOnNext", "show_data")
-                        presenter.setData(it.value!!)
-                    }
-                    it.isOnError -> {
-                        Log.d("isOnError", "error_data")
-                    }
-                }
-            }
+            .to(SingleScoper<Data>(this))
+            .subscribe({
+                presenter.setData(it)
+            }, {
+                Log.d("Crashlytics", "... crashes")
+            })
     }
 
     override fun willResignActive() {
@@ -57,6 +51,6 @@ class HomeInteractor : Interactor<HomeInteractor.HomePresenter, HomeRouter>() {
      * Presenter interface implemented by this RIB's view.
      */
     interface HomePresenter {
-        fun setData(results: List<CDRresults>)
+        fun setData(data: Data)
     }
 }

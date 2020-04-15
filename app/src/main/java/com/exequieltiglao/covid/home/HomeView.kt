@@ -2,20 +2,21 @@ package com.exequieltiglao.covid.home
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.exequieltiglao.covid.entity.CDR
-import com.exequieltiglao.covid.entity.CDRresults
-import kotlinx.android.synthetic.main.home_cdr_rib.view.*
+import com.exequieltiglao.covid.entity.Data
+import kotlinx.android.synthetic.main.home_data_rib.view.*
+import kotlinx.android.synthetic.main.show_data.view.*
 
 /**
  * Top level view for {@link HomeBuilder.HomeScope}.
  */
 class HomeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : ConstraintLayout(context, attrs, defStyle), HomeInteractor.HomePresenter {
 
-    var cdr: List<CDRresults> = listOf(CDRresults(listOf(CDR(0, 0, 0))))
     private var isLoaded: Boolean = true
+    private var loadData : Data? = null
 
     override fun onFinishInflate() {
         super.onFinishInflate()
@@ -26,13 +27,28 @@ class HomeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         if (isLoaded) return
 
         val llm = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        rv_cdr.layoutManager = llm
+        rv_data.layoutManager = llm
         isLoaded = true
 
+        Log.d("isLoaded,","true")
+
     }
 
-    override fun setData(results: List<CDRresults>) {
-        this.cdr = results
-        rv_cdr.requestModelBuild()
+    override fun setData(data: Data) {
+        loadData = data
+
+        total_affected.text = data.data.confirmed.toString()
+        total_recovered.text = data.data.recovered.toString()
+        total_death.text = data.data.deaths.toString()
+        total_active.text = data.data.active.toString()
+
+        /*
+        val format = SimpleDateFormat("MM-dd-yyyy", Locale.US)
+        val dateString = format.format(data.dt)
+
+        as_of.text = dateString.toString()
+        */
+
     }
+
 }

@@ -11,6 +11,7 @@ import com.uber.rib.core.RibInteractor
 import io.reactivex.Notification
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import retrofit2.HttpException
 import javax.inject.Inject
 
 /**
@@ -28,8 +29,11 @@ class HomeInteractor : Interactor<HomeInteractor.HomePresenter, HomeRouter>() {
         super.didBecomeActive(savedInstanceState)
 
         presenter.showLoading()
+
         showData()
+
     }
+
 
     fun showData() {
         apiRepository.data()
@@ -38,7 +42,12 @@ class HomeInteractor : Interactor<HomeInteractor.HomePresenter, HomeRouter>() {
             .subscribe({
                 presenter.setData(it)
             }, {
-                Log.d("Crashlytics", "... crashes")
+                // TODO : move to RootInteractor and improve code logic
+                if (it is HttpException) {
+                    Log.d("HttpException", it.code().toString())
+                } else {
+                    presenter.showInternetDialog()
+                }
             })
     }
 
@@ -52,6 +61,8 @@ class HomeInteractor : Interactor<HomeInteractor.HomePresenter, HomeRouter>() {
      * Presenter interface implemented by this RIB's view.
      */
     interface HomePresenter {
+
+        fun showInternetDialog()
         fun showLoading()
         fun setData(data: Data)
     }

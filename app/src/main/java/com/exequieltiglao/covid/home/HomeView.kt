@@ -1,6 +1,8 @@
 package com.exequieltiglao.covid.home
 
 import android.content.Context
+import android.content.Intent
+import android.provider.Settings
 import android.util.AttributeSet
 import android.util.Log
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -9,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.exequieltiglao.covid.entity.Data
 import com.exequieltiglao.covid.utils.DialogHelper
 import com.exequieltiglao.covid.utils.DialogHelperFactory
+import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.home_data_rib.view.*
 import kotlinx.android.synthetic.main.show_data.view.*
 
@@ -21,6 +25,7 @@ class HomeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     private var loadData : Data? = null
 
     private lateinit var dialogHelper: DialogHelper
+    private val retrySubject = PublishSubject.create<String>()
 
     override fun onFinishInflate() {
         super.onFinishInflate()
@@ -43,6 +48,17 @@ class HomeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         dialogHelper.showLoading(this)
     }
 
+    override fun showInternetDialog() {
+        dialogHelper.showConfirmDialog(title = "No Internet Connection",
+            message = "Please make sure that you are connected to the Internet",
+            buttonText = "RETRY",
+            listener = {
+                retrySubject.onNext("")
+                val intent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
+                context.startActivity(intent)
+            }
+        )
+    }
 
     override fun setData(data: Data) {
         loadData = data

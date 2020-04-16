@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.afollestad.materialdialogs.MaterialDialog
 import com.androidadvance.topsnackbar.TSnackbar
 import com.exequieltiglao.covid.R
 
@@ -16,6 +17,18 @@ class DialogHelperImpl (private val context: Context) : DialogHelper {
     private var dialog : Dialog? = null
     private var snackbar: TSnackbar? = null
 
+    override fun showConfirmDialog(title: String, message: String, buttonText: String, listener: () -> Unit ) {
+        dialog?.dismiss()
+        dialog = MaterialDialog(context).show {
+            title(text = title)
+            message(text = message)
+            positiveButton(text = buttonText) { dialog ->
+                dialog.dismiss()
+                listener()
+            }
+            cancelOnTouchOutside(false)
+        }
+    }
 
     override fun dismissAll() {
         dialog?.dismiss()
@@ -24,6 +37,12 @@ class DialogHelperImpl (private val context: Context) : DialogHelper {
     override fun hideAll() {
         snackbar?.dismiss()
     }
+
+    override fun showInternetPermission(listener: () -> Unit) {
+        showConfirmDialog(title = "No Internet Connection", message = "Please make sure that you have a" +
+                "internet connection.", buttonText = "RETRY", listener = listener)
+    }
+
 
     override fun showLoading(view: View) {
         snackbar = TSnackbar.make(view, "Loading...", TSnackbar.LENGTH_INDEFINITE)

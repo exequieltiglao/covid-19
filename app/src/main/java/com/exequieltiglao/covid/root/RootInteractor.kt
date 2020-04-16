@@ -5,6 +5,7 @@ import com.uber.rib.core.Bundle
 import com.uber.rib.core.Interactor
 import com.uber.rib.core.RibInteractor
 import io.reactivex.Observable
+import retrofit2.HttpException
 import javax.inject.Inject
 
 /**
@@ -19,6 +20,7 @@ class RootInteractor : Interactor<RootInteractor.RootPresenter, RootRouter>() {
 
     override fun didBecomeActive(savedInstanceState: Bundle?) {
         super.didBecomeActive(savedInstanceState)
+
         presenter.home()
             .to(ObservableScoper<Unit>(this))
             .subscribe {

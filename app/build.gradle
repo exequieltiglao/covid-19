@@ -39,6 +39,7 @@ dependencies {
     // UI
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "com.androidadvance:topsnackbar:1.1.1"
+    implementation "com.afollestad.material-dialogs:core:3.1.1"
 
     // Graph
     // implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'

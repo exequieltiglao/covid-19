@@ -27,6 +27,7 @@ class HomeInteractor : Interactor<HomeInteractor.HomePresenter, HomeRouter>() {
     override fun didBecomeActive(savedInstanceState: Bundle?) {
         super.didBecomeActive(savedInstanceState)
 
+        presenter.showLoading()
         showData()
     }
 
@@ -51,6 +52,7 @@ class HomeInteractor : Interactor<HomeInteractor.HomePresenter, HomeRouter>() {
      * Presenter interface implemented by this RIB's view.
      */
     interface HomePresenter {
+        fun showLoading()
         fun setData(data: Data)
     }
 }

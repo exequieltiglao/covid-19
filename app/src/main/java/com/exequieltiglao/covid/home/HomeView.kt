@@ -7,6 +7,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.exequieltiglao.covid.entity.Data
+import com.exequieltiglao.covid.utils.DialogHelper
+import com.exequieltiglao.covid.utils.DialogHelperFactory
 import kotlinx.android.synthetic.main.home_data_rib.view.*
 import kotlinx.android.synthetic.main.show_data.view.*
 
@@ -18,8 +20,11 @@ class HomeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     private var isLoaded: Boolean = true
     private var loadData : Data? = null
 
+    private lateinit var dialogHelper: DialogHelper
+
     override fun onFinishInflate() {
         super.onFinishInflate()
+        dialogHelper = DialogHelperFactory.create(context)
         initRv()
     }
 
@@ -34,6 +39,11 @@ class HomeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
 
     }
 
+    override fun showLoading() {
+        dialogHelper.showLoading(this)
+    }
+
+
     override fun setData(data: Data) {
         loadData = data
 
@@ -42,12 +52,7 @@ class HomeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         total_death.text = data.data.deaths.toString()
         total_active.text = data.data.active.toString()
 
-        /*
-        val format = SimpleDateFormat("MM-dd-yyyy", Locale.US)
-        val dateString = format.format(data.dt)
-
-        as_of.text = dateString.toString()
-        */
+        dialogHelper.hideAll()
 
     }
 

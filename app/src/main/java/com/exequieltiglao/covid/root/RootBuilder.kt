@@ -9,7 +9,7 @@ import com.exequieltiglao.covid.di.AccountModule
 import com.exequieltiglao.covid.di.NetworkModule
 import com.exequieltiglao.covid.home.HomeBuilder
 import com.exequieltiglao.covid.utils.AndroidEventsService
-import com.exequieltiglao.covid.utils.ScreenStack
+import com.exequieltiglao.covid.ScreenStack
 import com.uber.rib.core.InteractorBaseComponent
 import com.uber.rib.core.ViewBuilder
 import dagger.Binds

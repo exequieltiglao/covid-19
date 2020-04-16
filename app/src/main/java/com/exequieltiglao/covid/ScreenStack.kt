@@ -1,4 +1,4 @@
-package com.exequieltiglao.covid.utils
+package com.exequieltiglao.covid
 
 
 import android.view.ViewGroup

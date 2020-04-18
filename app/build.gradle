@@ -43,6 +43,7 @@ dependencies {
 
     // Graph
     // implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
+    implementation 'com.diogobernardino:williamchart:3.3.0'
 
 
     //Epoxy

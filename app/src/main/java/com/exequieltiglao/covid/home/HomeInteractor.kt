@@ -34,15 +34,14 @@ class HomeInteractor : Interactor<HomeInteractor.HomePresenter, HomeRouter>() {
 
     }
 
-
     fun showData() {
-        apiRepository.data()
+        apiRepository.country("Philippines")
             .observeOn(AndroidSchedulers.mainThread())
             .to(SingleScoper<Data>(this))
             .subscribe({
                 presenter.setData(it)
             }, {
-                // TODO : move to RootInteractor and improve code logic
+                // TODO : move showInternetDialog to RootInteractor and improve code logic
                 if (it is HttpException) {
                     Log.d("HttpException", it.code().toString())
                 } else {

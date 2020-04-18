@@ -43,13 +43,12 @@ class DialogHelperImpl (private val context: Context) : DialogHelper {
                 "internet connection.", buttonText = "RETRY", listener = listener)
     }
 
-
     override fun showLoading(view: View) {
         snackbar = TSnackbar.make(view, "Loading...", TSnackbar.LENGTH_INDEFINITE)
         val sbView = snackbar?.view
         val textView = sbView?.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text) as TextView
         textView.setTextColor(Color.WHITE)
-        sbView.setBackgroundColor(ContextCompat.getColor(context, R.color.tomato))
+        sbView.setBackgroundColor(ContextCompat.getColor(context, R.color.orange1))
         val params = sbView.layoutParams as FrameLayout.LayoutParams
         params.gravity = Gravity.TOP
         sbView.layoutParams = params

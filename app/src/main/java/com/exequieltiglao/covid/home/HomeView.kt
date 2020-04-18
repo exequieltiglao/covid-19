@@ -2,6 +2,7 @@ package com.exequieltiglao.covid.home
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.provider.Settings
 import android.util.AttributeSet
 import android.util.Log
@@ -13,6 +14,7 @@ import com.exequieltiglao.covid.utils.DialogHelper
 import com.exequieltiglao.covid.utils.DialogHelperFactory
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
+import kotlinx.android.synthetic.main.graph_data.view.*
 import kotlinx.android.synthetic.main.home_data_rib.view.*
 import kotlinx.android.synthetic.main.show_data.view.*
 
@@ -24,23 +26,14 @@ class HomeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     private var isLoaded: Boolean = true
     private var loadData : Data? = null
 
+    private val animationDuration = 1000L
+
     private lateinit var dialogHelper: DialogHelper
     private val retrySubject = PublishSubject.create<String>()
 
     override fun onFinishInflate() {
         super.onFinishInflate()
         dialogHelper = DialogHelperFactory.create(context)
-        initRv()
-    }
-
-    private fun initRv() {
-        if (isLoaded) return
-
-        val llm = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        rv_data.layoutManager = llm
-        isLoaded = true
-
-        Log.d("isLoaded,","true")
 
     }
 
@@ -60,9 +53,11 @@ class HomeView @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         )
     }
 
+
     override fun setData(data: Data) {
         loadData = data
 
+        // location.text = data.data.location
         total_affected.text = data.data.confirmed.toString()
         total_recovered.text = data.data.recovered.toString()
         total_death.text = data.data.deaths.toString()

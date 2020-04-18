@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purpleish"
+    android:background="@color/orange4"
     android:elevation="150dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +15,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/arial"
             android:text="Covid-19"
@@ -25,21 +25,30 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/svg"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="50dp"
-            android:src="@drawable/global"
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:background="@drawable/ph_shape"
+            android:drawableStart="@drawable/ph_flag_32"
+            android:fontFamily="@font/arialbd"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="PH"
+            android:textAlignment="center"
+            android:textColor="@color/orange1"
+            android:textSize="18sp"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            tools:text="PH" />
 
         <TextView
             android:id="@+id/stats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/arial"
             android:text="Statistics"
@@ -54,9 +63,9 @@
             android:id="@+id/card_affected"
             android:layout_width="180dp"
             android:layout_height="110sp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="40dp"
-            app:cardBackgroundColor="@color/orange3"
+            app:cardBackgroundColor="@color/purpleish2"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -66,7 +75,7 @@
                 android:id="@+id/label_affected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/arial"
                 android:text="Affected"
@@ -78,13 +87,13 @@
                 android:id="@+id/total_affected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="60dp"
                 android:fontFamily="@font/arial"
                 android:text=""
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                tools:text="250,201" />
+                tools:text="5,201" />
 
         </androidx.cardview.widget.CardView>
 
@@ -93,7 +102,7 @@
             android:layout_width="180dp"
             android:layout_height="110sp"
             android:layout_marginTop="40dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
             app:cardBackgroundColor="@color/tomato"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
@@ -104,7 +113,7 @@
                 android:id="@+id/label_death"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/arial"
                 android:text="Death"
@@ -116,13 +125,13 @@
                 android:id="@+id/total_death"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="60dp"
                 android:fontFamily="@font/arial"
                 android:text=""
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                tools:text="50,201" />
+                tools:text="201" />
 
         </androidx.cardview.widget.CardView>
 
@@ -130,7 +139,7 @@
             android:id="@+id/card_recovered"
             android:layout_width="180dp"
             android:layout_height="110sp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             app:cardBackgroundColor="@color/greenish1"
             app:cardCornerRadius="10dp"
@@ -142,7 +151,7 @@
                 android:id="@+id/label_recovered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/arial"
                 android:text="Recovered"
@@ -154,13 +163,13 @@
                 android:id="@+id/total_recovered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="60dp"
                 android:fontFamily="@font/arial"
                 android:text=""
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                tools:text="150,201" />
+                tools:text="2,201" />
 
         </androidx.cardview.widget.CardView>
 
@@ -169,7 +178,7 @@
             android:layout_width="180dp"
             android:layout_height="110sp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
             app:cardBackgroundColor="@color/lightblueish"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
@@ -180,7 +189,7 @@
                 android:id="@+id/label_active"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/arial"
                 android:text="Active"
@@ -192,22 +201,32 @@
                 android:id="@+id/total_active"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="60dp"
                 android:fontFamily="@font/arial"
                 android:text=""
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                tools:text="200,201" />
+                tools:text="1,201" />
 
         </androidx.cardview.widget.CardView>
 
         <include
             android:id="@+id/nav"
             layout="@layout/nav"
-            android:layout_height="50dp"
             android:layout_width="match_parent"
+            android:layout_height="50dp"
             app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!--        <include-->
+        <!--            android:id="@+id/graph"-->
+        <!--            layout="@layout/graph_data"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--            app:layout_constraintRight_toRightOf="parent" />-->
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

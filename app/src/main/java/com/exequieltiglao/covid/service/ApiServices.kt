@@ -10,13 +10,13 @@ interface AppApi {
     fun data(): Single<Data>
 
     @GET("v2/country/{country_name}")
-    fun country(@Path("country") country: String): Single<Data>
+    fun country(@Path("country_name") country: String): Single<Data>
+
 }
 
 interface ApiRepository {
     fun data(): Single<Data>
     fun country(country: String): Single<Data>
-
 }
 
 class ApiRepositoryImpl(val apiServices: AppApi) :  ApiRepository {
